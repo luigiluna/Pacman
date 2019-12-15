@@ -1,0 +1,34 @@
+(Pergunta 1)
+A ordem de exploração foi de acordo com o esperado?
+- Sim.
+
+O Pacman realmente passa por todos os estados explorados no seu caminho para o objetivo?
+- Na prática, o pacman só faz o caminho de acordo com o tipo de busca, mas teoricamente ele teria passado por todos os caminhos que foram explorados, seja os caminhos descartados ou o caminho que ele usa pra chegar ao objetivo.
+
+(Pergunta 2)
+Essa é uma solução ótima? 
+- Não.
+Senão, o que a busca em profundidade está fazendo de errado?
+- O pacman está seguindo por um caminho mais longo devido ao tipo de busca, no caso da busca em profundidade, o pacman vai dar preferência a ir pela esquerda, depois direita, depois baixo e por ultimo cima.
+
+(Pergunta 3)
+A busca em largura encontra a solução ótima?
+- Sim, se a solução ótima for encontrar o caminho mais curto para o objetivo.
+
+
+(Pergunta 4) O que acontece em openMaze para as várias estratégias de busca?
+Busca em Profunidade: 
+- O pacman percorre um caminho muito longo, tem custo 298 e pesquisa 577 nós
+(python pacman.py -l openMaze -p SearchAgent -a fn=dfs -z .5)
+
+Busca em Largura: 
+- O pacman verifica 682 nós, mas tem vantagem no custo, que é 54
+(python pacman.py -l openMaze -p SearchAgent -a fn=bfs -z .5)
+
+Busca de custo uniforme: 
+- Tem o mesmo resultado que busca em largura, verifica 682 nós e tem custo 54
+(python pacman.py -l openMaze -p SearchAgent -a fn=ucs -z .5)
+
+Busca A*: 
+- Verifica somente 211 nós, tem custo 54 também, eh a melhor busca de todas
+(python pacman.py -l openMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic)
